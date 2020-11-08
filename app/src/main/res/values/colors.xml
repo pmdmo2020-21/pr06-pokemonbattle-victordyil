@@ -9,5 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="purple_50">#f3e5f5</color>
     <color name="green_50">#e8f5e9</color>
+    <color name="green_battle">#91E198</color>
+    <color name="transparent">#0091E198</color>
 
 </resources>

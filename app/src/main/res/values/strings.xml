@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Pokemon battle simulator</string>
+    <string name="fightText">Select your opponent and start the fight to see who is the winner</string>
 </resources>
