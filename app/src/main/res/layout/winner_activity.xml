@@ -25,7 +25,7 @@
         android:id="@+id/imageView"
         android:layout_width="400dp"
         android:layout_height="400dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/ganadorTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/bulbasur" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/ganadorTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bulbasur"

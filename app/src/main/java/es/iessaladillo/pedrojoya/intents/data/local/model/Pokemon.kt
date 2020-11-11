@@ -1,10 +1,12 @@
 package es.iessaladillo.pedrojoya.intents.data.local.model
 
+import android.content.Context
+import android.graphics.drawable.Drawable
+import androidx.core.content.ContextCompat
 import kotlin.random.Random
 
-// TODO: Define las propiedades de un pokemon
 class Pokemon(
-    var id:Long, var nombre: String, var tipo: Tipos, var fotoId: Any,
+    var id: Long, var nombre: String, var tipo: Tipos, var fotoId: Int,
 ) {
 
     enum class Tipos {
@@ -14,7 +16,8 @@ class Pokemon(
         PLANTA,
         HIELO,
         DRAGON,
-        NORMAL;
+        NORMAL,
+        RAYO;
 
         fun ganador(tipoAtaque: Tipos, tipoDefensa: Tipos): Int {
             val rnd = Random(System.currentTimeMillis() / 1000)
@@ -30,6 +33,7 @@ class Pokemon(
                         HIELO -> rnd.nextInt(2) + 1
                         DRAGON -> rnd.nextInt(2) + 1
                         NORMAL -> rnd.nextInt(2) + 1
+                        RAYO -> 2
                     }
                 }
                 FUEGO -> {
@@ -41,6 +45,7 @@ class Pokemon(
                         HIELO -> 1
                         DRAGON -> 2
                         NORMAL -> rnd.nextInt(2) + 1
+                        RAYO -> 1
                     }
                 }
                 ROCA -> {
@@ -52,6 +57,7 @@ class Pokemon(
                         HIELO -> 1
                         DRAGON -> 2
                         NORMAL -> rnd.nextInt(2) + 1
+                        RAYO -> rnd.nextInt(2) + 1
                     }
                 }
                 PLANTA -> {
@@ -63,6 +69,7 @@ class Pokemon(
                         HIELO -> 1
                         DRAGON -> 2
                         NORMAL -> rnd.nextInt(2) + 1
+                        RAYO -> rnd.nextInt(2) + 1
                     }
                 }
                 HIELO -> {
@@ -74,6 +81,7 @@ class Pokemon(
                         HIELO -> 1
                         DRAGON -> 2
                         NORMAL -> rnd.nextInt(2) + 1
+                        RAYO -> 2
                     }
                 }
                 DRAGON -> {
@@ -85,6 +93,8 @@ class Pokemon(
                         HIELO -> 1
                         DRAGON -> 2
                         NORMAL -> rnd.nextInt(2) + 1
+                        RAYO -> rnd.nextInt(2) + 1
+
                     }
                 }
                 NORMAL -> {
@@ -96,9 +106,27 @@ class Pokemon(
                         HIELO -> 1
                         DRAGON -> 2
                         NORMAL -> rnd.nextInt(2) + 1
+                        RAYO -> rnd.nextInt(2) + 1
                     }
                 }
+                RAYO -> {
+                    when (tipoDefensa) {
+                        AGUA -> 1
+                        FUEGO -> rnd.nextInt(2) + 1
+                        ROCA -> 1
+                        PLANTA -> 1
+                        HIELO -> 1
+                        DRAGON -> rnd.nextInt(2) + 1
+                        NORMAL -> rnd.nextInt(2) + 1
+                        RAYO -> rnd.nextInt(2) + 1
+                    }
+                }
+
             }
         }
+    }
+
+    public fun getDrawable(context: Context): Drawable {
+        return ContextCompat.getDrawable(context, fotoId)!!
     }
 }
